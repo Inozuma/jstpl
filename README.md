@@ -6,30 +6,28 @@
 
 Using a file as input and output
 
-`input.json`
-```
+**input.json**
+```json
 {
-    "user": {
-        "name": "toto"
-    }
+    "name": "toto"
 }
 ```
 
-`output.tpl`
+**output.tpl**
 ```
-Hello {{.user.name}}!
+Hello {{.name}}!
 ```
 
-`bash`
-```
+**bash**
+```bash
 $ jstpl -in input.json -f output.tpl
-toto
+Hello toto!
 ```
 
 Using standard input and command line format
 
-`bash`
-```
+**bash**
+```bash
 $ echo '{"name":"toto"}' | jstpl 'Hello {{.name}}!"
 Hello toto!
 ```
