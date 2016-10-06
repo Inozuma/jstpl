@@ -45,7 +45,9 @@ func main() {
 
 	// decode JSON input
 	var v interface{}
-	if err := json.NewDecoder(input).Decode(&v); err != nil {
+	dec := json.NewDecoder(input)
+	dec.UseNumber()
+	if err := dec.Decode(&v); err != nil {
 		log.Fatalf("cannot decode JSON input: %s", err)
 	}
 
