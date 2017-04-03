@@ -11,6 +11,8 @@ import (
 	"text/template"
 )
 
+var templateFuncs = make(template.FuncMap)
+
 func main() {
 	var (
 		inputFile string
@@ -52,7 +54,7 @@ func main() {
 	}
 
 	// parse template
-	tpl, err := template.New("jstpl").Parse(tmpl)
+	tpl, err := template.New("jstpl").Funcs(templateFuncs).Parse(tmpl)
 	if err != nil {
 		log.Fatalf("cannot parse template: %s", err)
 	}
