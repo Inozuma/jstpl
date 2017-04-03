@@ -50,6 +50,4 @@ func init() {
 			templateFuncs[k] = v
 		}
 	}
-
-	return funcs
 }
